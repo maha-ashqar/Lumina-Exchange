@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Exchange</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#68dba9",
+            "tertiary-container": "#001e2f",
+            "on-tertiary-fixed-variant": "#004c6e",
+            "on-error": "#ffffff",
+            "outline-variant": "#c6c6cd",
+            "inverse-on-surface": "#eaf1ff",
+            "primary-fixed-dim": "#bec6e0",
+            "primary-container": "#131b2e",
+            "on-surface": "#0b1c30",
+            "surface": "#f8f9ff",
+            "surface-bright": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dae2fd",
+            "inverse-primary": "#bec6e0",
+            "on-primary": "#ffffff",
+            "surface-variant": "#d3e4fe",
+            "surface-container-high": "#dce9ff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#005137",
+            "secondary-container": "#82f5c1",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#89ceff",
+            "surface-dim": "#cbdbf5",
+            "secondary": "#006c4a",
+            "on-secondary-fixed": "#002114",
+            "secondary-fixed": "#85f8c4",
+            "surface-container-highest": "#d3e4fe",
+            "outline": "#76777d",
+            "inverse-surface": "#213145",
+            "surface-tint": "#565e74",
+            "on-secondary-container": "#00714e",
+            "primary": "#000000",
+            "on-background": "#0b1c30",
+            "on-primary-fixed-variant": "#3f465c",
+            "background": "#f8f9ff",
+            "surface-container": "#e5eeff",
+            "on-tertiary-container": "#008cc7",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#c9e6ff",
+            "surface-container-low": "#eff4ff",
+            "error": "#ba1a1a",
+            "on-primary-container": "#7c839b",
+            "on-primary-fixed": "#131b2e",
+            "on-tertiary-fixed": "#001e2f",
+            "tertiary": "#000000",
+            "on-surface-variant": "#45464d",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "currency-numeral-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "currency-numeral": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "currency-numeral-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "currency-numeral": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .shadow-ambient {
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05), 0 0 1px 0 rgba(15, 23, 42, 0.08);
+    }
+    .shadow-ambient-glow {
+      box-shadow: 0 25px 50px -12px rgba(5, 150, 105, 0.08), 0 0 0 1px rgba(5, 150, 105, 0.15);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-secondary-container selection:text-on-secondary-container pb-24">
+<!-- Top App Bar (Shared Anchor Component) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm w-full">
+<div class="flex justify-between items-center w-full px-4 h-14 max-w-lg mx-auto">
+<!-- Leading Brand & Status Indicator -->
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary" data-icon="currency_exchange">currency_exchange</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Lumina Exchange</h1>
+<span class="relative flex h-2 w-2 ml-1" title="Connected &amp; Live">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+</div>
+<!-- Trailing Reload / Updated State -->
+<div class="flex items-center space-x-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">Updated 1 min ago</span>
+<button aria-label="Refresh exchange rates" class="p-1.5 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95 flex items-center justify-center" id="refresh-btn">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Responsive Container -->
+<main class="w-full max-w-lg mx-auto px-4 pt-3 pb-6 flex-1 flex flex-col space-y-4">
+<!-- FreeCurrencyAPI Status Bar & Fallback Mode -->
+<div class="flex items-center justify-between px-3.5 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">FreeCurrencyAPI: Live Mode</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Safe Fallback</span>
+<button aria-checked="true" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" id="toggle-fallback" role="switch" type="button">
+<span aria-hidden="true" class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-surface-container-lowest shadow ring-0 transition duration-200 ease-in-out translate-x-4"></span>
+</button>
+</div>
+</div>
+<!-- Active Conversion & Base Input Card -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-ambient transition-all duration-200 hover:shadow-ambient-glow">
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-md text-label-md text-on-surface-variant" for="amount-input">You Send (Base)</label>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/30 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="lock" style="font-size: 14px;">lock</span> 0% Fee Guaranteed
+        </span>
+</div>
+<!-- Floating Input Well with embedded Currency Selector -->
+<div class="relative bg-surface-container-low rounded-xl p-3 border border-outline-variant/40 focus-within:border-secondary focus-within:ring-2 focus-within:ring-secondary/20 transition-all duration-150">
+<div class="flex items-center justify-between gap-2">
+<!-- Numerical Amount Input Field -->
+<div class="flex-1 min-w-0">
+<input class="w-full bg-transparent border-0 p-0 text-on-surface font-currency-numeral-mobile text-currency-numeral-mobile sm:font-currency-numeral sm:text-currency-numeral focus:ring-0 focus:outline-none tracking-tight font-bold" id="amount-input" inputmode="decimal" placeholder="0.00" type="text" value="1,000.00"/>
+</div>
+<!-- Quick Clear Button -->
+<button class="p-1 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" id="clear-btn" title="Clear Amount">
+<span class="material-symbols-outlined" data-icon="cancel" style="font-size: 20px;">cancel</span>
+</button>
+<!-- Base Currency Selector Badge -->
+<button class="flex items-center space-x-2 bg-surface-container-lowest border border-outline-variant/60 rounded-full py-1.5 px-3 shadow-sm hover:bg-surface-container-low active:scale-95 transition-all" id="base-currency-pill">
+<!-- Flag Icon SVG (USD) -->
+<span class="w-5 h-5 rounded-full overflow-hidden flex items-center justify-center border border-outline-variant/30 flex-shrink-0">
+<svg class="w-full h-full object-cover" viewbox="0 0 640 480">
+<g fill-rule="evenodd">
+<path d="M0 0h640v480H0z" fill="#bd3d44"></path>
+<path d="M0 55.5h640M0 129.5h640M0 203.5h640M0 277.5h640M0 351.5h640M0 425.5h640" stroke="#fff" stroke-width="37"></path>
+<path d="M0 0h280v259H0z" fill="#192f5d"></path>
+<circle cx="140" cy="129" fill="#ffffff" opacity="0.95" r="60"></circle>
+</g>
+</svg>
+</span>
+<div class="text-left">
+<span class="block font-label-lg text-label-lg text-on-surface leading-none font-bold">USD</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more" style="font-size: 18px;">expand_more</span>
+</button>
+</div>
+<div class="mt-2 flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">United States Dollar</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium" id="rate-reference-text">Mid-market rate</span>
+</div>
+</div>
+<!-- Quick Preset Amount Chips -->
+<div class="mt-3 flex items-center justify-between gap-1.5 overflow-x-auto pb-1">
+<button class="amount-chip px-2.5 py-1 rounded-full border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm hover:border-secondary hover:text-secondary hover:bg-secondary-container/20 transition-all active:scale-95" data-val="10">+10</button>
+<button class="amount-chip px-2.5 py-1 rounded-full border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm hover:border-secondary hover:text-secondary hover:bg-secondary-container/20 transition-all active:scale-95" data-val="50">+50</button>
+<button class="amount-chip px-2.5 py-1 rounded-full border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm hover:border-secondary hover:text-secondary hover:bg-secondary-container/20 transition-all active:scale-95" data-val="100">+100</button>
+<button class="amount-chip px-2.5 py-1 rounded-full border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm hover:border-secondary hover:text-secondary hover:bg-secondary-container/20 transition-all active:scale-95" data-val="500">+500</button>
+<button class="amount-chip px-2.5 py-1 rounded-full border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm hover:border-secondary hover:text-secondary hover:bg-secondary-container/20 transition-all active:scale-95" data-val="1000">+1,000</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-variant transition-all active:scale-95" id="chip-reset">Reset</button>
+</div>
+</section>
+<!-- Centered Invert / Swap Floating Action Node -->
+<div class="relative flex items-center justify-center -my-2 z-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+</div>
+<button class="relative bg-surface-container-lowest border border-outline-variant/60 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-surface-container-low active:scale-90 transition-transform duration-200" id="swap-trigger" title="Invert Base Currency">
+<span class="material-symbols-outlined text-secondary" data-icon="swap_vert" style="font-size: 20px;">swap_vert</span>
+</button>
+</div>
+<!-- Live Market Snapshot & Inverse Toggle Card -->
+<div class="bg-secondary-container/20 border border-secondary-container/60 rounded-xl px-3.5 py-2.5 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up" style="font-size: 20px;">trending_up</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block font-bold" id="spot-rate-display">1 USD = 0.9200 EUR</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live mid-rate • Interbank spread</span>
+</div>
+</div>
+<button class="font-label-sm text-label-sm px-2.5 py-1 bg-surface-container-lowest rounded-full border border-outline-variant/40 shadow-sm text-on-surface hover:bg-surface-container-high transition-colors active:scale-95" id="toggle-inverse">
+        Inverse (1 EUR = 1.087 USD)
+      </button>
+</div>
+<!-- Targeted Conversion Grid (EUR, ILS, JOD, USD) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Target Currencies</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Active Pairs</span>
+</div>
+<!-- Currency Card 1: EUR -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 shadow-sm hover:border-secondary/40 transition-all duration-150">
+<div class="flex items-center justify-between">
+<!-- Flag & Currency Info -->
+<div class="flex items-center space-x-3">
+<span class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-outline-variant/30 bg-surface-container">
+<svg class="w-full h-full object-cover" viewbox="0 0 640 480">
+<path d="M0 0h640v480H0z" fill="#039"></path>
+<circle cx="320" cy="240" fill="none" r="100" stroke="#fc0" stroke-dasharray="1 51.4" stroke-width="12"></circle>
+</svg>
+</span>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">EUR</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Euro</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 USD = €0.9200</p>
+</div>
+</div>
+<!-- Converted Output & Trend Badge -->
+<div class="text-right">
+<span class="font-currency-numeral-mobile text-currency-numeral-mobile font-bold text-on-surface block leading-tight" id="converted-eur">€920.00</span>
+<span class="inline-flex items-center text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined" data-icon="north" style="font-size: 14px;">north</span> +0.24% today
+            </span>
+</div>
+</div>
+</article>
+<!-- Currency Card 2: ILS -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 shadow-sm hover:border-secondary/40 transition-all duration-150">
+<div class="flex items-center justify-between">
+<!-- Flag & Currency Info -->
+<div class="flex items-center space-x-3">
+<span class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-outline-variant/30 bg-surface-container">
+<svg class="w-full h-full object-cover" viewbox="0 0 640 480">
+<path d="M0 0h640v480H0z" fill="#fff"></path>
+<path d="M0 50h640v60H0zm0 260h640v60H0z" fill="#0038b8"></path>
+<circle cx="320" cy="240" fill="#0038b8" r="40"></circle>
+</svg>
+</span>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">ILS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Israeli Shekel</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 USD = ₪3.6800</p>
+</div>
+</div>
+<!-- Converted Output & Trend Badge -->
+<div class="text-right">
+<span class="font-currency-numeral-mobile text-currency-numeral-mobile font-bold text-on-surface block leading-tight" id="converted-ils">₪3,680.00</span>
+<span class="inline-flex items-center text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined" data-icon="south" style="font-size: 14px;">south</span> -0.15% today
+            </span>
+</div>
+</div>
+</article>
+<!-- Currency Card 3: JOD -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 shadow-sm hover:border-secondary/40 transition-all duration-150">
+<div class="flex items-center justify-between">
+<!-- Flag & Currency Info -->
+<div class="flex items-center space-x-3">
+<span class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-outline-variant/30 bg-surface-container">
+<svg class="w-full h-full object-cover" viewbox="0 0 640 480">
+<path d="M0 0h640v160H0z" fill="#000"></path>
+<path d="M0 160h640v160H0z" fill="#fff"></path>
+<path d="M0 320h640v160H0z" fill="#007a3d"></path>
+<path d="M0 0l320 240L0 480z" fill="#c8102e"></path>
+<circle cx="110" cy="240" fill="#fff" r="14"></circle>
+</svg>
+</span>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">JOD</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jordanian Dinar</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 USD = د.أ 0.7090</p>
+</div>
+</div>
+<!-- Converted Output & Trend Badge -->
+<div class="text-right">
+<span class="font-currency-numeral-mobile text-currency-numeral-mobile font-bold text-on-surface block leading-tight" id="converted-jod">709.00 JOD</span>
+<span class="inline-flex items-center text-on-surface-variant font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded">
+              Stable (Pegged)
+            </span>
+</div>
+</div>
+</article>
+<!-- Currency Card 4: USD Reference -->
+<article class="bg-surface-container-lowest/60 rounded-xl p-3.5 border border-dashed border-outline-variant/60 shadow-none">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-outline-variant/30 bg-surface-container">
+<svg class="w-full h-full object-cover" viewbox="0 0 640 480">
+<g fill-rule="evenodd">
+<path d="M0 0h640v480H0z" fill="#bd3d44"></path>
+<path d="M0 55.5h640M0 129.5h640M0 203.5h640M0 277.5h640M0 351.5h640M0 425.5h640" stroke="#fff" stroke-width="37"></path>
+<path d="M0 0h280v259H0z" fill="#192f5d"></path>
+</g>
+</svg>
+</span>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">USD</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Base Reference</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$1.00 = 1.00 USD</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-currency-numeral-mobile text-currency-numeral-mobile font-bold text-on-surface-variant block leading-tight" id="converted-usd">$1,000.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Parity (1.00)</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Transfer & Actions CTA -->
+<div class="pt-2">
+<button class="w-full bg-primary text-on-primary py-3.5 rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center space-x-2 shadow-lg hover:bg-on-surface active:scale-[0.99] transition-all">
+<span>Proceed to Secure Transfer</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Shared Anchor Component) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-surface shadow-md max-w-lg mx-auto">
+<div class="flex justify-around items-center px-4 py-2 border-t border-outline-variant/30">
+<!-- Tab 1: Convert (ACTIVE destination) -->
+<a class="flex flex-col items-center justify-center text-secondary font-semibold p-1.5 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+<span class="font-label-sm text-label-sm mt-0.5">Copy Rates</span>
+</a>
+<!-- Tab 2: Rate Alerts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-1.5 hover:text-secondary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm mt-0.5">Alerts</span>
+</a>
+<!-- Tab 3: History -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-1.5 hover:text-secondary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm mt-0.5">History</span>
+</a>
+</div>
+</nav>
+<!-- Inline Logic for Interactions and Conversion Calculations -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const amountInput = document.getElementById('amount-input');
+      const clearBtn = document.getElementById('clear-btn');
+      const chips = document.querySelectorAll('.amount-chip');
+      const resetChip = document.getElementById('chip-reset');
+      const swapBtn = document.getElementById('swap-trigger');
+      const refreshBtn = document.getElementById('refresh-btn');
+      const inverseBtn = document.getElementById('toggle-inverse');
+      const spotRateDisplay = document.getElementById('spot-rate-display');
+
+      const convertedEur = document.getElementById('converted-eur');
+      const convertedIls = document.getElementById('converted-ils');
+      const convertedJod = document.getElementById('converted-jod');
+      const convertedUsd = document.getElementById('converted-usd');
+
+      // Conversion rates relative to USD
+      const RATES = {
+        EUR: 0.9200,
+        ILS: 3.6800,
+        JOD: 0.7090,
+        USD: 1.0000
+      };
+
+      let isInverse = false;
+
+      function parseAmount(val) {
+        if (!val) return 0;
+        const cleaned = val.replace(/,/g, '');
+        const num = parseFloat(cleaned);
+        return isNaN(num) ? 0 : num;
+      }
+
+      function formatNumber(num) {
+        return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function updateCalculations() {
+        const baseVal = parseAmount(amountInput.value);
+        
+        convertedEur.textContent = '€' + formatNumber(baseVal * RATES.EUR);
+        convertedIls.textContent = '₪' + formatNumber(baseVal * RATES.ILS);
+        convertedJod.textContent = formatNumber(baseVal * RATES.JOD) + ' JOD';
+        convertedUsd.textContent = '$' + formatNumber(baseVal * RATES.USD);
+      }
+
+      amountInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/[^0-9.]/g, '');
+        const parts = val.split('.');
+        if (parts.length > 2) val = parts[0] + '.' + parts.slice(1).join('');
+        amountInput.value = val;
+        updateCalculations();
+      });
+
+      amountInput.addEventListener('blur', () => {
+        const num = parseAmount(amountInput.value);
+        amountInput.value = formatNumber(num);
+        updateCalculations();
+      });
+
+      clearBtn.addEventListener('click', () => {
+        amountInput.value = '';
+        amountInput.focus();
+        updateCalculations();
+      });
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const addVal = parseFloat(chip.getAttribute('data-val'));
+          const current = parseAmount(amountInput.value);
+          const total = current + addVal;
+          amountInput.value = formatNumber(total);
+          updateCalculations();
+        });
+      });
+
+      resetChip.addEventListener('click', () => {
+        amountInput.value = '1,000.00';
+        updateCalculations();
+      });
+
+      swapBtn.addEventListener('click', () => {
+        swapBtn.classList.toggle('rotate-180');
+        // Visual indicator micro-action
+        const originalEur = RATES.EUR;
+        // Invert EUR rate presentation
+        isInverse = !isInverse;
+        updateInverseLabel();
+      });
+
+      function updateInverseLabel() {
+        if (isInverse) {
+          spotRateDisplay.textContent = '1 EUR = 1.0870 USD';
+          inverseBtn.textContent = 'Switch to (1 USD = 0.920 EUR)';
+        } else {
+          spotRateDisplay.textContent = '1 USD = 0.9200 EUR';
+          inverseBtn.textContent = 'Inverse (1 EUR = 1.087 USD)';
+        }
+      }
+
+      inverseBtn.addEventListener('click', () => {
+        isInverse = !isInverse;
+        updateInverseLabel();
+      });
+
+      refreshBtn.addEventListener('click', () => {
+        refreshBtn.classList.add('animate-spin');
+        setTimeout(() => {
+          refreshBtn.classList.remove('animate-spin');
+        }, 600);
+      });
+
+      // Initialize
+      updateCalculations();
+    });
+  </script>
+</body></html>

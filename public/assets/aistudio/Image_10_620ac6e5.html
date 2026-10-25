@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Exchange - Configuration &amp; Settings</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#006c4a",
+            "inverse-primary": "#bec6e0",
+            "on-surface-variant": "#45464d",
+            "on-tertiary-fixed": "#001e2f",
+            "on-secondary-fixed": "#002114",
+            "secondary-fixed-dim": "#68dba9",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-error": "#ffffff",
+            "on-background": "#0b1c30",
+            "on-tertiary-container": "#008cc7",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-bright": "#f8f9ff",
+            "primary": "#000000",
+            "surface-container": "#e5eeff",
+            "primary-fixed-dim": "#bec6e0",
+            "background": "#f8f9ff",
+            "tertiary": "#000000",
+            "inverse-on-surface": "#eaf1ff",
+            "secondary-fixed": "#85f8c4",
+            "on-secondary-container": "#00714e",
+            "outline": "#76777d",
+            "on-primary-fixed-variant": "#3f465c",
+            "surface-container-highest": "#d3e4fe",
+            "on-primary-container": "#7c839b",
+            "secondary-container": "#82f5c1",
+            "on-secondary-fixed-variant": "#005137",
+            "surface-dim": "#cbdbf5",
+            "surface": "#f8f9ff",
+            "inverse-surface": "#213145",
+            "primary-container": "#131b2e",
+            "tertiary-fixed": "#c9e6ff",
+            "tertiary-fixed-dim": "#89ceff",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#131b2e",
+            "surface-variant": "#d3e4fe",
+            "surface-tint": "#565e74",
+            "primary-fixed": "#dae2fd",
+            "tertiary-container": "#001e2f",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-fixed-variant": "#004c6e",
+            "surface-container-low": "#eff4ff",
+            "on-surface": "#0b1c30",
+            "outline-variant": "#c6c6cd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Inter"],
+            "currency-numeral": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "currency-numeral-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "currency-numeral": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+            "currency-numeral-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Delicate ambient card styling according to design specs */
+    .converter-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 20px 40px -15px rgba(15, 23, 42, 0.05), 0 0 1px 0 rgba(15, 23, 42, 0.08);
+    }
+    .recessed-well {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+    .recessed-well:focus-within {
+      border-color: rgba(0, 108, 74, 0.4);
+      box-shadow: 0 0 0 3px rgba(0, 108, 74, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- ================= TOP APP BAR (Shared Components JSON Anchor) ================= -->
+<header class="bg-surface-container-lowest dark:bg-primary-container docked full-width top-0 z-50 border-b border-surface-container-high dark:border-outline-variant shadow-sm dark:shadow-none">
+<div class="w-full mx-auto px-margin flex items-center justify-between h-16">
+<!-- Brand & Left Nav -->
+<div class="flex items-center gap-space-xl">
+<a class="flex items-center gap-space-sm text-headline-sm font-headline-sm font-bold text-on-surface dark:text-inverse-on-surface tracking-tight group" href="#">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shadow-sm transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[20px]" data-icon="currency_exchange">currency_exchange</span>
+</div>
+<span>Lumina Exchange</span>
+</a>
+<!-- Desktop Navigation Items -->
+<nav class="hidden md:flex items-center gap-space-lg text-label-lg font-label-lg">
+<a class="text-on-surface-variant dark:text-inverse-on-surface transition-colors pb-1 hover:text-secondary dark:hover:text-secondary-fixed" href="#">
+            Dashboard
+          </a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface transition-colors pb-1 hover:text-secondary dark:hover:text-secondary-fixed" href="#">
+            Markets
+          </a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface transition-colors pb-1 hover:text-secondary dark:hover:text-secondary-fixed" href="#">
+            Rate Alerts
+          </a>
+<!-- Active Target Link from JSON Navigation -->
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary dark:border-secondary-fixed pb-1" href="#">
+            API Docs
+          </a>
+</nav>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-md">
+<!-- Live Feed Pill -->
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low border border-secondary/20 text-secondary text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-semibold tracking-wide">Live Feed</span>
+</div>
+<!-- Refresh Button -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-150 flex items-center gap-1 text-label-sm font-label-sm" title="Refresh Feed" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+<span class="hidden lg:inline">Refresh</span>
+</button>
+<!-- Status Indicator Icon -->
+<div class="p-2 text-secondary flex items-center" title="API Status: Operational">
+<span class="material-symbols-outlined text-[14px]" data-icon="fiber_manual_record" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+</div>
+<!-- Notifications -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<!-- User Profile Avatar -->
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-label-md text-on-surface">
+          LX
+        </div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN APP CANVAS ================= -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin py-space-lg">
+<!-- Breadcrumb Bar -->
+<nav class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant mb-space-md">
+<a class="hover:text-secondary transition-colors" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold">Configuration &amp; Settings</span>
+</nav>
+<!-- Page Header & Notification Flash Banner -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-space-lg pb-space-sm border-b border-surface-container-high">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">API &amp; Exchange Settings</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Configure FreeCurrencyAPI integration credentials, rate thresholds, and local execution preferences.</p>
+</div>
+<!-- Operational Status Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-secondary text-label-md font-label-md">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-bold">1 USD = 0.9241 EUR</span>
+<span class="text-[11px] text-secondary">↑ 0.12% today</span>
+</div>
+</div>
+<!-- Alert / Confirmation Feedback Toast (Simulated dynamic component) -->
+<div class="hidden mb-space-md p-space-md rounded-xl bg-secondary-fixed/30 border border-secondary/30 flex items-center justify-between animate-fade-in" id="saveBanner">
+<div class="flex items-center gap-space-sm text-on-secondary-fixed">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-md font-label-md font-semibold">Configuration parameters and API access tokens successfully synchronized across edge nodes.</span>
+</div>
+<button class="text-on-secondary-fixed-variant hover:text-secondary" onclick="document.getElementById('saveBanner').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Dual Column Settings Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- ================= LEFT NAVIGATION SIDEBAR (4 Cols) ================= -->
+<aside class="lg:col-span-3 space-y-2">
+<nav class="converter-card rounded-xl p-2 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#general">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+<span>General Preferences</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-label-md font-label-md bg-secondary text-on-secondary font-bold shadow-sm" href="#apikeys">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px]" data-icon="key" style="font-variation-settings: 'FILL' 1;">key</span>
+<span>FreeCurrencyAPI Keys</span>
+</div>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-secondary-container text-on-secondary-fixed font-bold tracking-wider uppercase">Live</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#display">
+<span class="material-symbols-outlined text-[18px]" data-icon="palette">palette</span>
+<span>Display &amp; Themes</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#webhooks">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications_active">notifications_active</span>
+<span>Webhooks &amp; Alerts</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#security">
+<span class="material-symbols-outlined text-[18px]" data-icon="shield">shield</span>
+<span>Security</span>
+</a>
+</nav>
+<!-- Quick API Health Widget in Sidebar -->
+<div class="converter-card rounded-xl p-space-md border border-surface-container-high space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Gateway Status</span>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              99.98% SLA
+            </span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface space-y-1">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Response Latency</span>
+<span class="font-mono font-bold text-secondary">48ms</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Active Edge Node</span>
+<span class="font-semibold text-on-surface">fra1 (Frankfurt)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">SSL Verification</span>
+<span class="font-semibold text-secondary">TLS 1.3 Active</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary hover:underline pt-1" href="#">
+<span>View Network Telemetry</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</aside>
+<!-- ================= RIGHT MAIN CONTENT AREA (9 Cols) ================= -->
+<section class="lg:col-span-9 space-y-space-lg">
+<!-- SECTION 1: FreeCurrencyAPI Key Management -->
+<div class="converter-card rounded-xl p-space-lg" id="apikeys">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-space-md border-b border-surface-container-high">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">FreeCurrencyAPI Key Management</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Primary bearer token utilized to hydrate spot markets and calculate cross-border algorithmic spreads.</p>
+</div>
+<span class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface font-semibold text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+              Production Endpoint
+            </span>
+</div>
+<!-- Key Inputs & Operations -->
+<div class="mt-space-md space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1.5" for="apiKeyInput">
+                Active Production API Key
+              </label>
+<div class="recessed-well rounded-xl p-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+<div class="flex-grow flex items-center gap-2 px-2">
+<span class="material-symbols-outlined text-outline" data-icon="vpn_key">vpn_key</span>
+<input class="w-full bg-transparent border-0 p-0 text-on-surface font-mono text-label-lg focus:ring-0 select-all" id="apiKeyInput" readonly="" type="password" value="fca_live_9d8B312e74AA09f872c114e9102cae4"/>
+<!-- Toggle Visibility -->
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded" id="toggleVisibilityBtn" onclick="toggleKeyVisibility()" title="Reveal Key" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility" id="eyeIcon">visibility</span>
+</button>
+<!-- Copy to Clipboard -->
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded" onclick="copyApiKey()" title="Copy to clipboard" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy" id="copyIcon">content_copy</span>
+</button>
+</div>
+<!-- Validate Action Button -->
+<button class="h-10 px-4 rounded-lg bg-secondary text-on-secondary text-label-md font-label-md font-bold flex items-center justify-center gap-1.5 transition hover:brightness-105 active:scale-95" id="validateKeyBtn" onclick="triggerValidation()" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+<span>Validate Key</span>
+</button>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Valid token with authenticated write scopes (Last tested 4 minutes ago).
+              </p>
+</div>
+<!-- Tier Quota & Latency Metrics Card -->
+<div class="recessed-well rounded-xl p-space-md grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Tier Badge & Status -->
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider font-semibold block mb-1">Assigned Tier</span>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">Free Tier</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-high text-on-surface-variant">5,000 req/mo</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1 block">Renews on Nov 1, 2025</span>
+</div>
+<!-- Quota Utilization Progress -->
+<div class="md:col-span-2 space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="text-on-surface font-semibold">Monthly Request Quota</span>
+<span class="font-mono text-on-surface">
+<span class="font-bold text-secondary">142</span> / 5,000 requests (2.8%)
+                  </span>
+</div>
+<!-- Progress bar track -->
+<div class="w-full h-2.5 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 2.84%"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>4,858 queries remaining</span>
+<a class="text-secondary font-semibold hover:underline" href="#">Upgrade to Pro →</a>
+</div>
+</div>
+</div>
+<!-- Fallback Resilience Toggle -->
+<div class="flex items-center justify-between p-space-md rounded-xl border border-surface-container-high bg-surface-container-lowest">
+<div class="space-y-0.5 pr-4">
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">Safe Local Cache on Rate Limit / 429</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-fixed text-on-secondary-fixed">RECOMMENDED</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Automatically serve cached timestamped quotes from local storage when upstream API throttles or during intermittent connection disruptions.
+                </p>
+</div>
+<!-- Switch -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Currency & Display Preferences -->
+<div class="converter-card rounded-xl p-space-lg" id="display">
+<div class="pb-space-md border-b border-surface-container-high">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Currency &amp; Display Preferences</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Customize global numerical precision, presentation currencies, and terminal UI theme modes.</p>
+</div>
+<div class="mt-space-md grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Default Base Currency -->
+<div class="space-y-2">
+<label class="block text-label-md font-label-md text-on-surface font-semibold" for="baseCurrencySelect">
+                Default Base Currency
+              </label>
+<div class="relative">
+<select class="w-full recessed-well rounded-xl px-3.5 py-2.5 text-label-lg font-label-lg text-on-surface appearance-none focus:outline-none pr-10 cursor-pointer" id="baseCurrencySelect">
+<option selected="" value="USD">USD — United States Dollar ($)</option>
+<option value="EUR">EUR — Euro Member Countries (€)</option>
+<option value="ILS">ILS — Israeli New Shekel (₪)</option>
+<option value="JOD">JOD — Jordanian Dinar (د.ا)</option>
+<option value="GBP">GBP — British Pound Sterling (£)</option>
+</select>
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="unfold_more">unfold_more</span>
+</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Used as standard comparison denominator across all rate cards.</p>
+</div>
+<!-- Number Format & Precision Setting -->
+<div class="space-y-2">
+<label class="block text-label-md font-label-md text-on-surface font-semibold" for="precisionSelect">
+                Numerical Precision &amp; Rounding
+              </label>
+<div class="relative">
+<select class="w-full recessed-well rounded-xl px-3.5 py-2.5 text-label-lg font-label-lg text-on-surface appearance-none focus:outline-none pr-10 cursor-pointer" id="precisionSelect">
+<option value="2">Standard (2 Decimals — e.g. 1.00 USD)</option>
+<option selected="" value="3">Middle East Precision (3 Decimals — e.g. 0.709 JOD / 3.742 ILS)</option>
+<option value="4">Micro-Spread (4 Decimals — Institutional FX)</option>
+<option value="6">High Precision Cryptographic (6 Decimals)</option>
+</select>
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="unfold_more">unfold_more</span>
+</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">3 decimals automatically applied when pairing JOD or regional currencies.</p>
+</div>
+<!-- Theme Preference Toggle Segment -->
+<div class="space-y-2">
+<span class="block text-label-md font-label-md text-on-surface font-semibold">
+                Visual Terminal Theme
+              </span>
+<div class="grid grid-cols-3 gap-2 p-1 recessed-well rounded-xl">
+<button class="py-2 px-3 rounded-lg bg-surface-container-lowest text-secondary font-bold text-label-sm flex items-center justify-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="light_mode" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+<span>Light</span>
+</button>
+<button class="py-2 px-3 rounded-lg text-on-surface-variant hover:text-on-surface text-label-sm flex items-center justify-center gap-1.5 transition" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="dark_mode">dark_mode</span>
+<span>Dark</span>
+</button>
+<button class="py-2 px-3 rounded-lg text-on-surface-variant hover:text-on-surface text-label-sm flex items-center justify-center gap-1.5 transition" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="desktop_windows">desktop_windows</span>
+<span>System</span>
+</button>
+</div>
+</div>
+<!-- Auto-Refresh Rate Interval -->
+<div class="space-y-2">
+<span class="block text-label-md font-label-md text-on-surface font-semibold">
+                Polling &amp; Refresh Interval
+              </span>
+<div class="grid grid-cols-4 gap-1.5 p-1 recessed-well rounded-xl">
+<button class="py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-label-sm text-center" type="button">
+                  5s
+                </button>
+<button class="py-2 rounded-lg bg-surface-container-lowest text-secondary font-bold text-label-sm text-center shadow-sm" type="button">
+                  15s
+                </button>
+<button class="py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-label-sm text-center" type="button">
+                  1m
+                </button>
+<button class="py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-label-sm text-center" type="button">
+                  Manual
+                </button>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Recommended: 15s to conserve tier quotas while tracking volatility.</p>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Rate Alerts & Webhooks -->
+<div class="converter-card rounded-xl p-space-lg" id="webhooks">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-space-md border-b border-surface-container-high">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Rate Alerts &amp; Automated Webhooks</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Receive instantaneous dispatch notifications when target pairs breach specified valuation corridors.</p>
+</div>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-secondary text-secondary hover:bg-secondary-fixed/20 text-label-sm font-label-sm font-bold transition" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add New Alert</span>
+</button>
+</div>
+<!-- Alert Rules List -->
+<div class="mt-space-md space-y-3">
+<!-- Alert Item 1 -->
+<div class="recessed-well rounded-xl p-3.5 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="trending_down">trending_down</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-bold text-on-surface">EUR / USD Drop Corridor</span>
+<span class="px-2 py-0.2 rounded text-[10px] font-semibold bg-[#ECFDF5] text-secondary">Active Trigger</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Notify when EUR/USD drops below <span class="font-mono font-semibold text-on-surface">0.9150</span></p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded transition" title="Delete rule" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Alert Item 2 -->
+<div class="recessed-well rounded-xl p-3.5 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="bolt">bolt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-bold text-on-surface">ILS Volatility Spike Watch</span>
+<span class="px-2 py-0.2 rounded text-[10px] font-semibold bg-[#ECFDF5] text-secondary">Active Trigger</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Notify when ILS intra-day deviation spike <span class="font-mono font-semibold text-on-surface">&gt; 1.5%</span></p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded transition" title="Delete rule" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Webhook Dispatch URL Configuration -->
+<div class="pt-space-sm space-y-2">
+<label class="block text-label-md font-label-md text-on-surface font-semibold" for="webhookUrlInput">
+                Custom Webhook Dispatch URL
+              </label>
+<div class="recessed-well rounded-xl p-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline pl-2" data-icon="webhook">webhook</span>
+<input class="w-full bg-transparent border-0 p-0 text-on-surface font-mono text-label-md focus:ring-0" id="webhookUrlInput" placeholder="https://api.yourdomain.com/v1/fx-listener" type="url" value="https://engine.internal.lumina.io/api/v2/fx/inbound"/>
+<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm font-semibold transition" type="button">
+                  Test Ping
+                </button>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">JSON payloads deliver signature verification hash in the <code class="font-mono font-semibold text-on-surface">X-Lumina-Signature</code> header.</p>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Save & Reset Action Controls -->
+<div class="converter-card rounded-xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="text-label-sm font-label-sm text-on-surface-variant">
+            Unsaved changes will be discarded upon session termination.
+          </div>
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<!-- Reset Button -->
+<button class="w-1/2 sm:w-auto px-space-lg h-[52px] rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-low text-label-lg font-label-lg font-semibold transition" onclick="triggerReset()" type="button">
+              Reset to Defaults
+            </button>
+<!-- Save Primary Button -->
+<button class="w-1/2 sm:w-auto px-space-lg h-[52px] rounded-lg bg-primary text-on-primary hover:brightness-110 active:scale-[0.98] text-label-lg font-label-lg font-bold shadow-md transition-all flex items-center justify-center gap-2" onclick="triggerSave()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="save">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ================= FOOTER (Shared Components JSON Anchor) ================= -->
+<footer class="bg-surface-container-low dark:bg-primary-container w-full bottom-0 border-t border-surface-container-high dark:border-outline-variant flat no shadows mt-space-xl">
+<div class="w-full px-margin py-space-lg flex flex-col md:flex-row justify-between items-center gap-space-md">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+<span class="text-label-lg font-label-lg font-bold text-on-surface dark:text-inverse-on-surface">
+          Lumina Exchange
+        </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant dark:text-inverse-on-surface">
+          © 2025 Lumina Exchange. Powered by FreeCurrencyAPI. All rights reserved.
+        </span>
+</div>
+<!-- Links Defined in JSON -->
+<div class="flex flex-wrap items-center justify-center gap-space-md text-label-sm font-label-sm">
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#">
+          Market Insights
+        </a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#">
+          API Status
+        </a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#">
+          Privacy Policy
+        </a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-150" href="#">
+          Terms of Service
+        </a>
+</div>
+</div>
+</footer>
+<!-- Vanilla Micro-interactions -->
+<script>
+    function toggleKeyVisibility() {
+      const input = document.getElementById('apiKeyInput');
+      const icon = document.getElementById('eyeIcon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    function copyApiKey() {
+      const input = document.getElementById('apiKeyInput');
+      navigator.clipboard.writeText(input.value);
+      const copyIcon = document.getElementById('copyIcon');
+      copyIcon.textContent = 'check';
+      setTimeout(() => {
+        copyIcon.textContent = 'content_copy';
+      }, 1800);
+    }
+
+    function triggerValidation() {
+      const btn = document.getElementById('validateKeyBtn');
+      const origContent = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin" data-icon="progress_activity">progress_activity</span><span>Checking...</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;" data-icon="check_circle">check_circle</span><span>Key Validated</span>`;
+        btn.classList.add('bg-secondary', 'text-white');
+        setTimeout(() => {
+          btn.innerHTML = origContent;
+        }, 2000);
+      }, 700);
+    }
+
+    function triggerSave() {
+      const banner = document.getElementById('saveBanner');
+      banner.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function triggerReset() {
+      if (confirm('Revert all terminal parameters and custom rate alert thresholds to factory presets?')) {
+        location.reload();
+      }
+    }
+  </script>
+</body></html>

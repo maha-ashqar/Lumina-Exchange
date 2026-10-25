@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Exchange - Currency Converter &amp; Live Interbank Rates</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#89ceff",
+            "surface-tint": "#565e74",
+            "error-container": "#ffdad6",
+            "secondary": "#006c4a",
+            "on-background": "#0b1c30",
+            "tertiary-container": "#001e2f",
+            "secondary-fixed": "#85f8c4",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#82f5c1",
+            "on-tertiary-container": "#008cc7",
+            "tertiary-fixed": "#c9e6ff",
+            "primary": "#000000",
+            "tertiary": "#000000",
+            "on-secondary-container": "#00714e",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#7c839b",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#002114",
+            "inverse-on-surface": "#eaf1ff",
+            "inverse-surface": "#213145",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "primary-fixed": "#dae2fd",
+            "on-secondary-fixed-variant": "#005137",
+            "on-error": "#ffffff",
+            "surface-variant": "#d3e4fe",
+            "on-primary-fixed": "#131b2e",
+            "secondary-fixed-dim": "#68dba9",
+            "surface-container-low": "#eff4ff",
+            "surface-bright": "#f8f9ff",
+            "inverse-primary": "#bec6e0",
+            "primary-container": "#131b2e",
+            "on-surface": "#0b1c30",
+            "surface": "#f8f9ff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#001e2f",
+            "surface-container-high": "#dce9ff",
+            "surface-dim": "#cbdbf5",
+            "primary-fixed-dim": "#bec6e0",
+            "outline": "#76777d",
+            "surface-container": "#e5eeff",
+            "outline-variant": "#c6c6cd",
+            "on-tertiary-fixed-variant": "#004c6e",
+            "on-primary-fixed-variant": "#3f465c",
+            "on-surface-variant": "#45464d",
+            "background": "#f8f9ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "currency-numeral-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "currency-numeral": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "currency-numeral-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "currency-numeral": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .spin-active {
+      transform: rotate(360deg);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .custom-shadow-core {
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 20px 40px -15px rgba(15, 23, 42, 0.05), 0 0 1px 0 rgba(15, 23, 42, 0.08);
+    }
+    .custom-shadow-card {
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 10px 25px -8px rgba(15, 23, 42, 0.04);
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TOP NAVIGATION BAR (Shared Component Execution) -->
+<header class="bg-surface-container-lowest border-b border-surface-container-high shadow-sm docked full-width top-0 z-50 sticky">
+<div class="w-full mx-auto px-margin flex items-center justify-between h-16 max-w-[1400px]">
+<!-- Left Anchor: Brand & Status -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-secondary">
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">currency_exchange</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Lumina Exchange</span>
+</div>
+<!-- Live Status Pill -->
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-secondary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="text-label-sm font-label-sm">FreeCurrencyAPI: Live Mode</span>
+</div>
+</div>
+<!-- Center Links: TopAppBar Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 text-label-lg font-label-lg" href="#dashboard">Dashboard</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 pb-1 text-label-lg font-label-lg" href="#markets">Markets</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 pb-1 text-label-lg font-label-lg" href="#alerts">Rate Alerts</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 pb-1 text-label-lg font-label-lg" href="#apidocs">API Docs</a>
+</nav>
+<!-- Right Trailing Controls -->
+<div class="flex items-center gap-space-md">
+<!-- Safe Fallback Switch -->
+<div class="hidden lg:flex items-center gap-2 pr-3 border-r border-[#E2E8F0]">
+<span class="text-label-sm font-label-sm text-outline">Offline Cache</span>
+<button aria-pressed="true" class="w-9 h-5 bg-secondary rounded-full transition-colors relative focus:outline-none" id="fallbackToggle" type="button">
+<span class="block w-3.5 h-3.5 bg-surface-container-lowest rounded-full absolute top-[3px] right-[3px] transition-transform"></span>
+</button>
+</div>
+<!-- Timestamp indicator -->
+<div class="hidden xl:flex items-center gap-1 text-outline text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span id="timestampText">Sync: 1s ago</span>
+</div>
+<!-- Secondary action: Refresh Button -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#E2E8F0] bg-surface-container-lowest hover:bg-[#F1F5F9] text-on-surface text-label-md font-label-md transition-all active:scale-[0.98]" id="refreshBtn">
+<span class="material-symbols-outlined text-[18px] text-secondary" id="refreshIcon">sync</span>
+<span>Refresh</span>
+</button>
+<!-- Live Feed button (trailing primary action) -->
+<div class="flex items-center gap-1 text-secondary text-label-md font-label-md bg-[#ECFDF5] px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[14px]">fiber_manual_record</span>
+<span>Live Feed</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-1 w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+<!-- 2. HERO / CENTRAL CONVERSION STATION -->
+<section class="w-full bg-surface-container-lowest rounded-xl border border-[#E2E8F0] custom-shadow-core p-6 lg:p-8 relative overflow-hidden">
+<!-- Ambient light background accent -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-[#ECFDF5] rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+<!-- Station Header -->
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h1 class="text-headline-md font-headline-md font-bold text-on-surface">Currency Converter &amp; Live Interbank Rates</h1>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE]">Zero-Markup</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Real-time FX rates powered by FreeCurrencyAPI with zero-fee interbank benchmark.</p>
+</div>
+<!-- Live Mid-market Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] self-start md:self-auto">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+<span class="text-label-md font-label-md text-on-surface font-semibold" id="topRatePill">1 USD = 0.9200 EUR</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 0.24% today
+          </span>
+</div>
+</div>
+<!-- Side-by-side Conversion Layout -->
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-center">
+<!-- Left Column: Base Amount Input -->
+<div class="lg:col-span-7 bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] p-5 focus-within:border-[#059669]/40 focus-within:ring-4 focus-within:ring-[#059669]/10 transition-all">
+<div class="flex items-center justify-between mb-2">
+<label class="text-label-md font-label-md text-outline" for="baseAmountInput">You Send / Base Currency</label>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">Interbank Mid-Rate Guaranteed</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<input class="w-full bg-transparent border-0 p-0 text-currency-numeral font-currency-numeral text-on-surface focus:ring-0 placeholder:text-outline/40 leading-none" id="baseAmountInput" min="0" placeholder="0.00" step="any" type="number" value="1000"/>
+<!-- Currency Selector Pill -->
+<div class="relative shrink-0">
+<button class="flex items-center gap-2.5 bg-surface-container-lowest border border-[#E2E8F0] rounded-full py-2 px-3.5 shadow-sm hover:bg-[#F1F5F9] transition-colors" id="baseCurrencyBtn" type="button">
+<!-- Flag Badge -->
+<span class="text-lg leading-none" id="baseFlagIcon">🇺🇸</span>
+<span class="text-label-lg font-label-lg font-bold text-on-surface" id="baseCodeLabel">USD</span>
+<span class="material-symbols-outlined text-[18px] text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Quick Increment Buttons Tray -->
+<div class="mt-5 pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center gap-2">
+<span class="text-label-sm font-label-sm text-outline mr-1">Quick Add:</span>
+<button class="quick-chip px-2.5 py-1 rounded-full border border-[#CBD5E1] text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-[#E2E8F0] transition-colors" data-add="10" type="button">+10</button>
+<button class="quick-chip px-2.5 py-1 rounded-full border border-[#CBD5E1] text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-[#E2E8F0] transition-colors" data-add="50" type="button">+50</button>
+<button class="quick-chip px-2.5 py-1 rounded-full border border-[#CBD5E1] text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-[#E2E8F0] transition-colors" data-add="100" type="button">+100</button>
+<button class="quick-chip px-2.5 py-1 rounded-full border border-[#CBD5E1] text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-[#E2E8F0] transition-colors" data-add="500" type="button">+500</button>
+<button class="quick-chip px-2.5 py-1 rounded-full border border-[#CBD5E1] text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-[#E2E8F0] transition-colors" data-add="1000" type="button">+1,000</button>
+<button class="px-2.5 py-1 rounded-full border border-dashed border-[#CBD5E1] text-label-sm font-label-sm text-outline hover:text-error hover:border-error transition-colors ml-auto" id="resetBtn" type="button">Reset</button>
+</div>
+</div>
+<!-- Center Swap Action (Bridging) -->
+<div class="lg:col-span-1 flex justify-center -my-2 lg:my-0">
+<button class="w-11 h-11 rounded-full bg-surface-container-lowest border border-[#E2E8F0] shadow-md hover:border-secondary flex items-center justify-center text-secondary transition-all active:scale-95 hover:rotate-180 duration-300" id="swapCurrenciesBtn" title="Invert Base / Target Pair">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+</button>
+</div>
+<!-- Right Column: Calculation Summary / Instant Breakdown -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl border border-surface-container-high p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-high">
+<span class="text-label-md font-label-md text-outline">Interbank Spread</span>
+<span class="text-label-md font-label-md font-bold text-secondary">0.00% (Free)</span>
+</div>
+<div class="py-3 space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex justify-between">
+<span>FreeCurrencyAPI Quote</span>
+<span class="font-semibold text-on-surface font-label-sm" id="summaryApiQuote">1 USD = 0.9200 EUR</span>
+</div>
+<div class="flex justify-between">
+<span>Inverse Ratio</span>
+<span class="font-semibold text-on-surface font-label-sm" id="summaryInverseQuote">1 EUR = 1.0870 USD</span>
+</div>
+<div class="flex justify-between">
+<span>Transfer Processing</span>
+<span class="text-secondary font-semibold">Instant Interbank</span>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-surface-container-high">
+<button class="w-full h-[52px] bg-primary hover:bg-[#1E293B] text-on-primary rounded-lg font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm transition-all hover:-translate-y-0.5">
+<span>Execute Zero-Spread Order</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. TARGET CURRENCIES GRID (4 RESPONSIVE CARDS) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">dashboard</span>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">Core Multi-Currency Conversions</h2>
+</div>
+<div class="text-label-sm font-label-sm text-outline">
+          Base Reference: <strong class="text-on-surface font-semibold" id="gridBaseBadge">1,000.00 USD</strong>
+</div>
+</div>
+<!-- 4 Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- CARD 1: USD (Parity Benchmark) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-5 custom-shadow-card flex flex-col justify-between hover:border-secondary/50 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<span class="text-2xl">🇺🇸</span>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">USD</h3>
+<p class="text-body-sm font-body-sm text-outline">US Dollar</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant font-semibold">Base / Parity</span>
+</div>
+<!-- Amount Display -->
+<div class="mt-4">
+<div class="text-headline-md font-headline-md font-extrabold text-on-surface" id="cardAmountUSD">$1,000.00</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">1 USD = 1.0000 USD</p>
+</div>
+<div class="mt-3 flex items-center justify-between text-label-sm font-label-sm text-outline bg-[#F8FAFC] p-2 rounded-lg">
+<span>24h Range:</span>
+<span class="font-semibold text-on-surface">$1.000 - $1.000</span>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-5 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Active Base
+            </span>
+<button class="text-outline hover:text-on-surface copy-btn" data-rate="1.0000" title="Copy Rate">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: EUR (Euro) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-5 custom-shadow-card flex flex-col justify-between hover:border-secondary/50 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<span class="text-2xl">🇪🇺</span>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">EUR</h3>
+<p class="text-body-sm font-body-sm text-outline">Euro</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#ECFDF5] text-secondary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span> +0.24%
+              </span>
+</div>
+<!-- Amount Display -->
+<div class="mt-4">
+<div class="text-headline-md font-headline-md font-extrabold text-on-surface" id="cardAmountEUR">€920.00</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">1 USD = 0.9200 EUR</p>
+</div>
+<div class="mt-3 flex items-center justify-between text-label-sm font-label-sm text-outline bg-[#F8FAFC] p-2 rounded-lg">
+<span>Spread Spark:</span>
+<span class="font-semibold text-secondary">H: €0.924 • L: €0.918</span>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-5 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-label-sm font-label-sm">
+<button class="text-on-surface font-semibold hover:text-secondary flex items-center gap-1 set-base-btn" data-currency="EUR" data-rate="0.9200">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Set as Base
+            </button>
+<div class="flex items-center gap-2 text-outline">
+<button class="hover:text-on-surface copy-btn" data-rate="0.9200" title="Copy Rate">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<button class="hover:text-on-surface" title="View Chart">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 3: ILS (Israeli New Shekel) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-5 custom-shadow-card flex flex-col justify-between hover:border-secondary/50 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<span class="text-2xl">🇮🇱</span>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">ILS</h3>
+<p class="text-body-sm font-body-sm text-outline">Israeli New Shekel</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#FEF2F2] text-[#DC2626] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">arrow_downward</span> -0.15%
+              </span>
+</div>
+<!-- Amount Display -->
+<div class="mt-4">
+<div class="text-headline-md font-headline-md font-extrabold text-on-surface" id="cardAmountILS">₪3,680.00</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">1 USD = 3.6800 ILS</p>
+</div>
+<div class="mt-3 flex items-center justify-between text-label-sm font-label-sm text-outline bg-[#F8FAFC] p-2 rounded-lg">
+<span>24h Spread:</span>
+<span class="font-semibold text-on-surface">H: ₪3.694 • L: ₪3.671</span>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-5 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-label-sm font-label-sm">
+<button class="text-on-surface font-semibold hover:text-secondary flex items-center gap-1 set-base-btn" data-currency="ILS" data-rate="3.6800">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Set as Base
+            </button>
+<div class="flex items-center gap-2 text-outline">
+<button class="hover:text-on-surface copy-btn" data-rate="3.6800" title="Copy Rate">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<button class="hover:text-on-surface" title="View Chart">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 4: JOD (Jordanian Dinar) -->
+<div class="bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-5 custom-shadow-card flex flex-col justify-between hover:border-secondary/50 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<span class="text-2xl">🇯🇴</span>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">JOD</h3>
+<p class="text-body-sm font-body-sm text-outline">Jordanian Dinar</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#F1F5F9] text-[#475569] font-bold">
+                Pegged Stable
+              </span>
+</div>
+<!-- Amount Display -->
+<div class="mt-4">
+<div class="text-headline-md font-headline-md font-extrabold text-on-surface" id="cardAmountJOD">709.000 د.أ</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">1 USD = 0.7090 د.أ (3 Decimals)</p>
+</div>
+<div class="mt-3 flex items-center justify-between text-label-sm font-label-sm text-outline bg-[#F8FAFC] p-2 rounded-lg">
+<span>Peg Anchor:</span>
+<span class="font-semibold text-on-surface">0.7090 Fixed Benchmark</span>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-5 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-label-sm font-label-sm">
+<button class="text-on-surface font-semibold hover:text-secondary flex items-center gap-1 set-base-btn" data-currency="JOD" data-rate="0.7090">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span> Set as Base
+            </button>
+<div class="flex items-center gap-2 text-outline">
+<button class="hover:text-on-surface copy-btn" data-rate="0.7090" title="Copy Rate">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<button class="hover:text-on-surface" title="View Chart">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. LOWER SECTION / MARKET INTELLIGENCE & API TELEMETRY -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Market Insights Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-6 custom-shadow-card">
+<div class="flex items-center justify-between pb-4 border-b border-[#F1F5F9]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">insights</span>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Market Insights</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Updated 2m ago</span>
+</div>
+<div class="mt-4 space-y-4">
+<!-- USD / EUR Commentary -->
+<div class="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">USD / EUR Momentum</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">Bullish Dollar Bias</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              The Euro tests lower boundaries near 0.9200 EUR per USD as rate divergence narratives continue between the Federal Reserve and ECB. Low volume sustains tight bid-ask spreads.
+            </p>
+</div>
+<!-- ILS Volatility -->
+<div class="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">ILS Regional Volatility</span>
+<span class="text-label-sm font-label-sm text-[#DC2626] font-bold">30d Volatility: 4.8%</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              Shekel spot rate stabilizes near 3.680 ILS. Bank of Israel liquidity facilities and FX swap windows maintain moderate fluctuation bands between 3.67 and 3.69 levels.
+            </p>
+</div>
+<!-- JOD Peg Report -->
+<div class="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">JOD Fixed Peg Parity</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Stability Index 100%</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              Central Bank of Jordan keeps official peg rock-solid at 0.7090 JOD / USD with foreign exchange reserve ratios well within recommended IMF adequacy margins.
+            </p>
+</div>
+</div>
+</div>
+<!-- FreeCurrencyAPI Live Telemetry Card -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-6 custom-shadow-card flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-[#F1F5F9]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">network_ping</span>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">API Telemetry</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#ECFDF5] text-secondary font-bold">200 OK</span>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-2 gap-3 mt-4">
+<div class="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+<span class="text-label-sm font-label-sm text-outline">Latency</span>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface mt-1">48 ms</div>
+<span class="text-label-sm font-label-sm text-secondary">Global Edge Cloud</span>
+</div>
+<div class="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+<span class="text-label-sm font-label-sm text-outline">Monthly Quota</span>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface mt-1">142 <span class="text-label-sm font-normal text-outline">/ 5,000</span></div>
+<div class="w-full bg-[#E2E8F0] h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 2.84%"></div>
+</div>
+</div>
+</div>
+<!-- Technical Specs -->
+<div class="mt-4 space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex justify-between py-1 border-b border-[#F1F5F9]">
+<span>Provider</span>
+<span class="font-semibold text-on-surface">FreeCurrencyAPI v1</span>
+</div>
+<div class="flex justify-between py-1 border-b border-[#F1F5F9]">
+<span>Base Currency Fix</span>
+<span class="font-semibold text-on-surface">USD</span>
+</div>
+<div class="flex justify-between py-1">
+<span>Cache Strategy</span>
+<span class="font-semibold text-secondary">Browser LocalStorage + SWR</span>
+</div>
+</div>
+</div>
+<!-- API Config Prompt -->
+<div class="mt-6 pt-4 border-t border-[#F1F5F9] bg-[#EFF6FF] -mx-6 -mb-6 p-4 rounded-b-xl border-t border-[#BFDBFE]/50">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm font-bold text-[#1D4ED8]">Custom API Key</span>
+<p class="text-body-sm font-body-sm text-[#1E40AF]">Unlock unlimited requests &amp; custom webhooks.</p>
+</div>
+<button class="px-3 py-1.5 rounded bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-label-sm font-label-sm font-bold transition-colors">
+              Configure
+            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component Execution) -->
+<footer class="bg-surface-container-low border-t border-surface-container-high w-full bottom-0 mt-12">
+<div class="w-full max-w-[1400px] mx-auto px-margin py-space-lg flex flex-col md:flex-row justify-between items-center gap-space-md">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+<span class="text-label-lg font-label-lg font-bold text-on-surface">Lumina Exchange</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+          © 2025 Lumina Exchange. Powered by FreeCurrencyAPI. All rights reserved.
+        </span>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 text-label-sm font-label-sm" href="#markets">Market Insights</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 text-label-sm font-label-sm" href="#status">API Status</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 text-label-sm font-label-sm" href="#privacy">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150 text-label-sm font-label-sm" href="#terms">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Notification Toast for Copy Interaction -->
+<div class="fixed bottom-6 right-6 bg-on-surface text-surface-container-lowest px-4 py-2.5 rounded-lg shadow-lg flex items-center gap-2 text-label-md font-label-md opacity-0 pointer-events-none transition-all duration-200 transform translate-y-2 z-50" id="toast">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span id="toastMsg">Rate copied to clipboard</span>
+</div>
+<!-- INTERACTIVE LOGIC SCRIPT -->
+<script>
+    // Rates relative to 1 USD
+    const RATES = {
+      USD: 1.0000,
+      EUR: 0.9200,
+      ILS: 3.6800,
+      JOD: 0.7090
+    };
+
+    const CURRENCY_DATA = {
+      USD: { symbol: '$', name: 'US Dollar', flag: '🇺🇸', decimals: 2 },
+      EUR: { symbol: '€', name: 'Euro', flag: '🇪🇺', decimals: 2 },
+      ILS: { symbol: '₪', name: 'Israeli New Shekel', flag: '🇮🇱', decimals: 2 },
+      JOD: { symbol: ' د.أ', name: 'Jordanian Dinar', flag: '🇯🇴', decimals: 3 }
+    };
+
+    let currentBase = 'USD';
+
+    // Elements
+    const baseInput = document.getElementById('baseAmountInput');
+    const baseCodeLabel = document.getElementById('baseCodeLabel');
+    const baseFlagIcon = document.getElementById('baseFlagIcon');
+    const gridBaseBadge = document.getElementById('gridBaseBadge');
+    const topRatePill = document.getElementById('topRatePill');
+    const summaryApiQuote = document.getElementById('summaryApiQuote');
+    const summaryInverseQuote = document.getElementById('summaryInverseQuote');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const refreshIcon = document.getElementById('refreshIcon');
+    const timestampText = document.getElementById('timestampText');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+
+    // Update all card conversions
+    function updateCalculations() {
+      const amount = parseFloat(baseInput.value) || 0;
+      const baseToUsdRate = 1 / RATES[currentBase];
+
+      // Update Top Summary
+      const eurRateFromBase = (RATES.EUR * baseToUsdRate).toFixed(4);
+      topRatePill.textContent = `1 ${currentBase} = ${eurRateFromBase} EUR`;
+      summaryApiQuote.textContent = `1 ${currentBase} = ${eurRateFromBase} EUR`;
+      const inverseVal = (1 / parseFloat(eurRateFromBase)).toFixed(4);
+      summaryInverseQuote.textContent = `1 EUR = ${inverseVal} ${currentBase}`;
+
+      // Update badge
+      gridBaseBadge.textContent = `${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${currentBase}`;
+
+      // Calculate each card target
+      const usdTotal = (amount * baseToUsdRate * RATES.USD).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const eurTotal = (amount * baseToUsdRate * RATES.EUR).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const ilsTotal = (amount * baseToUsdRate * RATES.ILS).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const jodTotal = (amount * baseToUsdRate * RATES.JOD).toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+
+      document.getElementById('cardAmountUSD').textContent = `$${usdTotal}`;
+      document.getElementById('cardAmountEUR').textContent = `€${eurTotal}`;
+      document.getElementById('cardAmountILS').textContent = `₪${ilsTotal}`;
+      document.getElementById('cardAmountJOD').textContent = `${jodTotal} د.أ`;
+    }
+
+    // Input event
+    baseInput.addEventListener('input', updateCalculations);
+
+    // Quick Add Buttons
+    document.querySelectorAll('.quick-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const addVal = parseFloat(btn.dataset.add);
+        const current = parseFloat(baseInput.value) || 0;
+        baseInput.value = (current + addVal).toString();
+        updateCalculations();
+      });
+    });
+
+    // Reset Button
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      baseInput.value = '1000';
+      updateCalculations();
+    });
+
+    // Swap Currencies Button
+    document.getElementById('swapCurrenciesBtn').addEventListener('click', () => {
+      const targetCurrencies = ['USD', 'EUR', 'ILS', 'JOD'];
+      const currentIndex = targetCurrencies.indexOf(currentBase);
+      const nextIndex = (currentIndex + 1) % targetCurrencies.length;
+      setNewBase(targetCurrencies[nextIndex]);
+    });
+
+    // Set as Base Currency Handler
+    function setNewBase(newBase) {
+      currentBase = newBase;
+      baseCodeLabel.textContent = newBase;
+      baseFlagIcon.textContent = CURRENCY_DATA[newBase].flag;
+      updateCalculations();
+      showToast(`Base currency changed to ${newBase}`);
+    }
+
+    document.querySelectorAll('.set-base-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cur = btn.dataset.currency;
+        setNewBase(cur);
+      });
+    });
+
+    // Refresh simulation
+    let secondsAgo = 1;
+    setInterval(() => {
+      secondsAgo++;
+      timestampText.textContent = `Sync: ${secondsAgo}s ago`;
+    }, 1000);
+
+    refreshBtn.addEventListener('click', () => {
+      refreshIcon.classList.add('spin-active');
+      timestampText.textContent = 'Syncing...';
+      setTimeout(() => {
+        refreshIcon.classList.remove('spin-active');
+        secondsAgo = 0;
+        timestampText.textContent = 'Sync: 0s ago';
+        showToast('Rates re-synchronized with FreeCurrencyAPI');
+      }, 600);
+    });
+
+    // Copy rate to clipboard
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rate = btn.dataset.rate;
+        navigator.clipboard?.writeText(rate).catch(() => {});
+        showToast(`Rate ${rate} copied to clipboard`);
+      });
+    });
+
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // Toggle button
+    const fallbackToggle = document.getElementById('fallbackToggle');
+    let toggleActive = true;
+    fallbackToggle.addEventListener('click', () => {
+      toggleActive = !toggleActive;
+      const knob = fallbackToggle.querySelector('span');
+      if (toggleActive) {
+        fallbackToggle.classList.remove('bg-outline');
+        fallbackToggle.classList.add('bg-secondary');
+        knob.classList.remove('left-[3px]');
+        knob.classList.add('right-[3px]');
+        showToast('Offline fallback cache enabled');
+      } else {
+        fallbackToggle.classList.remove('bg-secondary');
+        fallbackToggle.classList.add('bg-outline');
+        knob.classList.remove('right-[3px]');
+        knob.classList.add('left-[3px]');
+        showToast('Offline cache disabled: Strict live only');
+      }
+    });
+
+    // Initial calculation run
+    updateCalculations();
+  </script>
+</body></html>

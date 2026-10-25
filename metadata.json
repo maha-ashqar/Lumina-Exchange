@@ -1,0 +1,7 @@
+{
+  "name": "Lumina Exchange",
+  "description": "Live interbank currency exchange rates, multi-currency conversion, market watch, and real-time FX analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
